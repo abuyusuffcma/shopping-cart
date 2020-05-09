@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minusBtnPhone" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="itemNumberPhone" type="text" class="form-control text-center" value="1">
+                           <button id="plusBtnPhone" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$<span id="phonePrice">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minusBtnCase" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="itemNumberCase" type="text" class="form-control text-center" value="1">
+                           <button id="plusBtnCase"  class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$<span id="casePrice" >59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -64,9 +64,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
-                        <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$<span id="subTotal">1278</span></h5>
+                        <h5>$ <span id="tax" >00</span> </h5>
+                        <h5>$ <span id="total" >1278</span></h5>
                      </div>
                   </div>
                </div>
@@ -77,6 +77,93 @@
          </div>
       </div>
    </section>
+   <script>
+
+      //Plus Btn Handler for Phone Set
+      const plusBtnPhone = document.getElementById("plusBtnPhone");
+      plusBtnPhone.addEventListener("click", function(){
+         const itemNumberPhone = document.getElementById("itemNumberPhone").value;
+         const itemNumber = parseInt(itemNumberPhone);
+         const totalPhone = itemNumber + 1; 
+         const addTotalPhone = document.getElementById("itemNumberPhone").value = totalPhone;
+         const totalPhonePrice = 1219 * addTotalPhone;
+         document.getElementById("phonePrice").innerText = totalPhonePrice;
+      
+         const subTotal = document.getElementById("subTotal").innerText;
+         subTotalNumber = parseFloat(subTotal);
+         document.getElementById("subTotal").innerText = 1219 + subTotalNumber;
+
+         const total = document.getElementById("total").innerText;
+         totalNumber = parseFloat(total);
+         document.getElementById("total").innerText = 1219 + totalNumber;
+
+
+
+      })
+
+      //Minus Btn Handler for Phone Set
+      const minusBtnPhone = document.getElementById("minusBtnPhone");
+      minusBtnPhone.addEventListener("click", function(){
+         const itemNumberPhone = document.getElementById("itemNumberPhone").value;
+         const itemNumber = parseInt(itemNumberPhone);
+         const totalPhone = itemNumber - 1; 
+         const decreaseTotalPhone = document.getElementById("itemNumberPhone").value = totalPhone;
+         const decreaseTotalPhonePrice = 1219 * decreaseTotalPhone;
+         document.getElementById("phonePrice").innerText = decreaseTotalPhonePrice;
+
+         const subTotalMi = document.getElementById("subTotal").innerText;
+         subTotalNumberMi = parseFloat(subTotalMi);
+         document.getElementById("subTotal").innerText = subTotalNumberMi - 1219;
+
+         const totalMi = document.getElementById("total").innerText;
+         totalNumberMi = parseFloat(totalMi);
+         document.getElementById("total").innerText = totalNumberMi -1219;
+         
+      })
+
+
+      //Plus Btn Handler for Casing 
+      const plusBtnCase = document.getElementById("plusBtnCase");
+      plusBtnCase.addEventListener("click", function(){
+         const itemNumberCase = document.getElementById("itemNumberCase").value;
+         const itemQuantityCase = parseInt(itemNumberCase);
+         const totalCasing = itemQuantityCase + 1;
+         document.getElementById("itemNumberCase").value = totalCasing;
+         const totalCasePrice = 59*totalCasing;
+         const casePrice = document.getElementById("casePrice").innerText;
+         document.getElementById("casePrice").innerText = totalCasePrice;
+
+         const subTotalCase = document.getElementById("subTotal").innerText;
+         subTotalNumberCase = parseFloat(subTotalCase);
+         document.getElementById("subTotal").innerText = 59 + subTotalNumberCase;
+
+         const totalCase = document.getElementById("total").innerText;
+         totalNumberCase = parseFloat(totalCase);
+         document.getElementById("total").innerText = 59 + totalNumberCase;
+      })
+
+      //Minus Btn Handler for Casing
+      const minusBtnCase = document.getElementById("minusBtnCase");
+      minusBtnCase.addEventListener("click", function(){
+         const itemNumberCaseMi = document.getElementById("itemNumberCase").value;
+         casingNumber = parseInt(itemNumberCaseMi);
+         const totalCasingNumber = casingNumber - 1;
+         const decreaseCaseing = document.getElementById("itemNumberCase").value = totalCasingNumber;
+
+         const decreaseTotalCasePrice = 59*decreaseCaseing;
+         const decreaseTotalcasingNumber = document.getElementById("casePrice").innerText;
+         document.getElementById("casePrice").innerText = decreaseTotalCasePrice;
+
+         const subTotalCaseMi = document.getElementById("subTotal").innerText;
+         subTotalNumberCaseMi = parseFloat(subTotalCaseMi);
+         document.getElementById("subTotal").innerText = subTotalNumberCaseMi - 59;
+
+         const totalCaseMi = document.getElementById("total").innerText;
+         totalNumberCaseMi = parseFloat(totalCaseMi);
+         document.getElementById("total").innerText = totalNumberCaseMi -59;
+      })
+
+   </script>
 </body>
 
 </html>
