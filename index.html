@@ -13,7 +13,7 @@
 <body>
 
    <section>
-      <div class="container">
+      <div id="shoppingCart" class="container">
          <div class="cart">
             <div class="col-md-12 col-lg-10 mx-auto">
                <div class="cart-item">
@@ -71,12 +71,21 @@
                   </div>
                </div>
                <div class="col-md-12 pt-4 pb-4">
-                  <button type="button" class="btn btn-success check-out">Check Out</button>
+                  <button id="checkOut" type="button" class="btn btn-success check-out">Check Out</button>
                </div>
             </div>
          </div>
       </div>
    </section>
+
+   <div id="congradulation">
+      <h1 class="text-center">Thank You for Choosing Our Shop</h1>
+      <div class="login-area">
+         <h3>Login</h3>
+         <input type="text" class="form-control" placeholder="Email (phone for mobile accounts)"><br>
+         <button class="btn btn-success">Continue</button>
+      </div>
+   </div>
    <script>
 
       //Plus Btn Handler for Phone Set
@@ -162,6 +171,17 @@
          totalNumberCaseMi = parseFloat(totalCaseMi);
          document.getElementById("total").innerText = totalNumberCaseMi -59;
       })
+
+
+      const checkOutBtn = document.getElementById("checkOut");
+      checkOutBtn.addEventListener("click", function(){
+         const shoppingCart = document.getElementById("shoppingCart");
+         shoppingCart.style.display = "none";
+         
+         const congradulation = document.getElementById("congradulation");
+         congradulation.style.display = "block";
+      })
+
 
    </script>
 </body>

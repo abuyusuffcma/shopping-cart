@@ -53,3 +53,14 @@ body{
 	background-color: #2FBE70;
 	border: none;
 }
+
+#congradulation{
+	display:none;
+}
+.login-area{
+	width: 40%;
+	padding: 10px 50px;
+	margin: 50px auto;
+	border-radius: 10px;
+	box-shadow: 10px 10px 20px gray;
+}
